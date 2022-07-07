@@ -67,6 +67,7 @@ jobs:
         run: |
           cd ./Kratos-Rebirth
           git remote set-url origin git@github.com:TsumugiWenders/Kratos-Rebirth-MK.git
+          git checkout -b mk
           git add -A
           git commit -m "Update"
           git push --set-upstream origin mk  --force
