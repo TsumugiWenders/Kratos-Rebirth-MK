@@ -1,49 +1,13 @@
 # Global 全局配置
-site_analytics: ''
+site_analytics: 
 hoster: <a href="https://github.io" target="_blank">Github Pages</a>
-site_logo: ''
+site_logo: /images/site_logo.webp
 snow: false
 click_animate_js: 'candy'
 enable_dark: true
 highlight_theme: night-eighties # 代码高亮主题（light | night | night-eighties | night-blue | night-bright）
+cdn: false
 check_update: true
-
-vendors:
-  packages:
-    disqusjs: 
-      version: 1.2.6
-    gitalk: 
-      version: 1.7.2
-    gitment: 
-      version: 0.0.3
-    twikoo: 
-      version: 1.5.11
-    valine: 
-      version: 1.4.18
-    "@waline/client": 
-      version: 1.6.0
-    bootstrap: 
-      version: 3.3.4
-    nprogress: 
-      version: 0.2.0
-    aplayer: 
-      version: 1.10.1
-    "@fancyapps/fancybox": 
-      version: 3.5.7
-    clipboard: 
-      version: 2.0.6
-    layui-src: 
-      version: 2.5.5
-    font-awesome: 
-      version: 4.7.0
-    jquery: 
-      version: 3.6.0
-    qrcode_js: 
-      version: 1.0.0
-    mermaid: 
-      version: 9.1.1
-    meting:
-      version: 2.0.1
 
 # 自定义样式
 customStyles:
@@ -54,41 +18,55 @@ customStyles:
 # Index 首页配置
 index:
   post_type: false
-  read_count: true
-  comment_count: true
+  read_count: false
+  comment_count: false
 
 # Top Menu 顶部导航栏配置 （具体格式请参照文档）
 menu:
-  # index: /
-  # archives: /archives/
-  # friends: /friends/
-  # sites:
-  #   submenu: true
-  #   author: https://candinya.com
-  #   project: https://github.com/Candinya/Kratos-Rebirth
+  index: /
+  archives: /archives/
+  sites:
+    submenu: true
+    qust: /qust/
+    seach: /search/
+  friends: /friends/
+  TestLab:
+    submenu: true
+    AriaNg: http://ariang.nekopara.net
+    FC: https://zong-my.sharepoint.com/:f:/g/personal/neko_nekopara_net/Eh3nr7Co-y5JrZFdW3AiZwcBCPA5okTFcigLCRl7NZFP1A
+    DD: http://dev.kanotype.net:8003/deepdanbooru/
+  EveryDayPic: /everydaypic/
+  about: /about/
 
 label:
-  # index: <i class="fa fa-home"></i>首页
-  # archives: <i class="fa fa-file"></i>档案馆
-  # friends: <i class="fa fa-paw"></i>好伙伴
-  # sites:
-  #   submenu: <i class="fa fa-link"></i>链接
-  #   author: 作者博客
-  #   project: 项目链接
+  index: <i class="fa fa-home"></i>首页
+  archives: <i class="fa fa-archive"></i>档案馆
+  sites: 
+    submenu: <i class="fa fa-link"></i>链接
+    seach: 查找
+    qust: Address of QUST
+  friends: <i class="fa fa-mars"></i>好朋友们
+  TestLab:
+    submenu: <i class="fa fa-flask"></i>实验室
+    AriaNg: <i class="fa fa-angle-double-down"></i>AriaNg
+    FC: <i class="fa fa-file-o"></i>文件收集
+    DD: 二次元图片识别
+  EveryDayPic: <i class="fa fa-picture-o"></i>每日图片
+  about: <i class="fa fa-paper-plane"></i>关于
 
 # Footer 页脚配置
 group_link: 
 contact:
   weibo: 
-  mail: 
-  telegram: CandyUnion
-  twitter: 
+  mail: neko@nekopara.net
+  telegram: TsumugiWenders
+  twitter: Tsumugi_HG
   facebook: 
   linkedin: 
   fediverse:
-    instance: nya.one
-    username: Candinya
-  github: Candinya
+    instance: 
+    username: 
+  github: TsumugiWenders
   rss:
 timenotice: 本站已运行
 icp: 
@@ -100,7 +78,7 @@ posts:
   donate: false
   share: true
   comments: 
-    provider: ''
+    provider: 'waline'
     enableBGImage: false
 
 # Disqus [Disqus](https://disqus.com) 评论相关
@@ -120,46 +98,21 @@ disqusjs:
 valine:
   app_id: 
   app_key: 
-  visitor: true
-  enableQQ: false
+  visitor: 
 
 # Twikoo [Twikoo](https://twikoo.js.org) 评论相关
 twikoo:
   env_id: 
 
 # Waline [Waline](https://waline.js.org) 评论相关
-## 不仅限于以下内容，您可以参照 Waline的 [前端配置文档](https://waline.js.org/reference/client.html) 设置您需要的配置项
+## 不仅限于以下内容，您可以参照 Waline的 [前端配置文档](https://waline.js.org/client/basic.html) 设置您需要的配置项
 ## el 和 path 会在页面自动生成，不必加入
 waline:
-  serverURL: #后端服务器地址，必填
+  serverURL: https://waline.nekopara.net
+  avatarCDN: https://ga.candinya.com/avatar/
+  placeholder: 说点什么喵～o(=•ェ•=)m\\n无需登录也完全没问题哦～
   visitor: true
-
-# Gitalk [Gitalk](https://gitalk.github.io/) 评论相关
-## 不仅限于以下内容，您可以参照 [Gitalk 文档](https://github.com/gitalk/gitalk/blob/master/readme-cn.md#%E8%AE%BE%E7%BD%AE) 设置您需要的配置项
-## id 会在页面自动生成，不必加入
-gitalk:
-  clientID: 'GitHub Application Client ID'
-  clientSecret: 'GitHub Application Client Secret'
-  repo: 'Kratos-Rebirth-Demo'
-  owner: 'Candinya'
-  admin: 
-    - 'Candinya'
-  distractionFreeMode: false
-
-# Gitment [Gitment](https://github.com/imsun/gitment/) 评论相关
-## 不仅限于以下内容，您可以参照 [Gitment 文档](https://github.com/imsun/gitment#methods) 设置您需要的配置项
-## id 会在页面自动生成，不必加入
-gitment:
-  owner: 'Candinya'
-  repo: 'Kratos-Rebirth-Demo'
-  oauth:
-    client_id: 'Your client ID'
-    client_secret: 'Your client secret'
-
-# LiveRe [LiveRe](https://livere.com/) 评论相关
-livere:
-  id: city
-  uid:
+  langMode: {"admin":"🍬"}
 
 # APlayer 左下角音乐播放器
 aplayer:
@@ -168,7 +121,7 @@ aplayer:
   meting:
     server: netease
     type: playlist
-    id: 3204190542
+    id: 6724652045
   order: random
 
 # Widgets 侧边栏小挂件
@@ -180,7 +133,7 @@ widgets:
 - category
 - tagcloud
 - posts
-avatarUri: /images/avatar.webp
+avatarUri: /images/logo.webp
 mobile_toc: 
   hide: false
   hide_id: false
@@ -192,17 +145,18 @@ fancybox: true
 search:
   enable: true
   path: search.json
-  field: post # page | post | all. Default post
+  field: all # page | post | all. Default post
   content: true # Include post | page content
 
 # JavaScript 相关配置
 ## 由于Javascript被压缩后难以有效编辑与生成，因而为了简化操作，将相关的配置项在生成文件时以独立的json文件写出，调用时使用fetch API获取。
 jsconfig:
   main:
-    cover:
-      randomAmount: 20 # 表示从1~20
-      baseUrl: null # 使用默认值（不单独配置），将跟随 vendors 中的相关设定选择是否使用 cdn
-      filenameTemplate: "thumb_{no}.webp" 
+    pic:
+      CDN: false # 表示使用 CDN 加载图片
+      random_amount: 20 # 表示从1~20
+      filename: "images/thumb/thumb_{no}.webp" # 相对于主题根目录，表示文件名的格式, {no} 用以指代随机的编号。
+                                              # 如果包含 // 表示使用指定域名的绝对路径（例如第三方图床服务等），那么会忽略 CDN 选项
     createTime: "2018/05/06 17:03:12"
     donateBtn: "支持我~"
     scanNotice: "扫一扫，好不好？"
@@ -217,29 +171,21 @@ jsconfig:
 
 # Site verify 站点验证相关配置内容
 site_verify:
-  google: 
+  google: yIZU7ISNE4Y9KCNkxep-pBUYT5MW-_FP-sERISh3qpU
   baidu: 
-  bing: 
+  bing: C258629E6197B3E5F1664527F17242D4 
 
 # Friends 友链相关内容
-friends:
-  href: "friends"
-  page:
-    title: "好伙伴们"
-    comments: false
-    description: "好伙伴们在哪里~"
-    updated: "2021-01-18"
-  list:
-  # - name: "猫猫①号"
-  #   bio: "喵~"
-  #   avatar: "../images/avatar.webp"
-  #   link: "https://candinya.com"
-  # - name: "猫猫②号"
-  #   bio: "喵喵~"
-  #   avatar: "../images/avatar.webp"
-  #   link: "https://candinya.com"
-  # - name: "猫猫⑨号"
-  #   bio: "咪啪~"
-  #   avatar: "../images/avatar.webp"
-  #   link: "https://candinya.com"
-  verify: true # 验证每个友链的可访问性，炸了会有提示
+#friends:
+#  href: "friends"
+#  page:
+#    title: "好伙伴们"
+#    comments: false
+#    description: "好伙伴们在哪里~"
+#    updated: "2021-01-18"
+#  list:
+#  - name: "猫猫①号"
+#    bio: "喵~"
+#    avatar: "../images/avatar.webp"
+#    link: "#"
+#  verify: true # 验证每个友链的可访问性，炸了会有提示
