@@ -39,7 +39,7 @@ jobs:
         run: |
           git clone --single-branch --branch master git@github.com:Candinya/Kratos-Rebirth.git
           cp _config.yml Kratos-Rebirth/
-          cp images Kratos-Rebirth/source/
+          cp -r images Kratos-Rebirth/source/
           
       - name: lsdir
         run: |
