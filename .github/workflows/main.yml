@@ -37,13 +37,13 @@ jobs:
           
       - name: Checkout theme repo
         run: |
-          git clone --single-branch --branch master git@github.com:Candinya/Kratos-Rebirth.git
+          git clone --single-branch --branch master git@github.com:Candinya/Kratos-Rebirth.git ./
           pwd
           ls
           
       - name: Checkout flie repo
         run: |
-          git clone --single-branch --branch file git@github.com:TsumugiWenders/Kratos-Rebirth-MK.git
+          git clone --single-branch --branch file git@github.com:TsumugiWenders/Kratos-Rebirth-MK.git ./repo-tmp
           pwd
           ls
           
