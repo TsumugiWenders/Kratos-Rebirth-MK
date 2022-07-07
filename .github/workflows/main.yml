@@ -43,7 +43,7 @@ jobs:
           
       - name: Checkout flie repo
         run: |
-          git clone --single-branch --branch file git@github.com:TsumugiWenders/Kratos-Rebirth-MK.git
+          git clone --single-branch --branch main git@github.com:TsumugiWenders/Kratos-Rebirth-MK.git
           pwd
           ls
           
