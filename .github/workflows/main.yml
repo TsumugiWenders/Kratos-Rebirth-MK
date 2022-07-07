@@ -51,9 +51,9 @@ jobs:
       - name: Move modified files
         run: |
           tree ./
+          pwd
           cp ./repo-tmp/_config.yml ./Kratos-Rebirth/
           cp ./repo-tmp/images ./Kratos-Rebirth/source/
-          cp ./repo-tmp/images ./source/
           tree ./
           
       - name: Delete temporary files
