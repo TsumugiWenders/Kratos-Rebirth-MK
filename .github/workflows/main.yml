@@ -38,24 +38,8 @@ jobs:
       - name: Checkout theme repo
         run: |
           git clone --single-branch --branch master git@github.com:Candinya/Kratos-Rebirth.git
-          pwd
-          ls
-          
-      - name: Checkout flie repo
-        run: |
-          git clone --single-branch --branch main git@github.com:TsumugiWenders/Kratos-Rebirth-MK.git
-          pwd
-          ls
-          
-      - name: Move modified files
-        run: |
-          tree ./
-          cp ./repo-tmp/_config.yml ./KR/
-          cp ./repo-tmp/images ./KR/source/
-          
-      - name: Delete temporary files
-        run: |
-          rm -rf ./repo-tmp
+          cp _config.yml Kratos-Rebirth/
+          cp images Kratos-Rebirth/source/
           
       - name: lsdir
         run: |
