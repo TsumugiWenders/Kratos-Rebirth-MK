@@ -36,7 +36,9 @@ jobs:
           git config --global user.email Tsumugi_Wenders@outlook.com
           
       - name: Checkout theme repo
-        run: git clone --single-branch --branch master git@github.com:Candinya/Kratos-Rebirth.git
+        run: |
+          git clone --single-branch --branch master git@github.com:Candinya/Kratos-Rebirth.git
+          git checkout -b mk
           
       - name: Checkout flie repo
         uses: actions/checkout@v2
@@ -67,7 +69,6 @@ jobs:
         run: |
           cd ./Kratos-Rebirth
           git remote set-url origin git@github.com:TsumugiWenders/Kratos-Rebirth-MK.git
-          git checkout -b mk
           git add -A
           git commit -m "Update"
           git push --set-upstream origin mk  --force
