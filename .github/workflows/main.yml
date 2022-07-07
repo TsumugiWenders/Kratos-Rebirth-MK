@@ -48,13 +48,16 @@ jobs:
           
       - name: Delete source files
         run: |
+          tree ./
           rm -rf ./Kratos-Rebirth/source/images/
           rm ./Kratos-Rebirth/_config.yml
           
       - name: Move modified files
         run: |
+          tree ./
           mv ./repo-tmp/_config.yml ./Kratos-Rebirth/
           mv ./repo-tmp/images ./Kratos-Rebirth/source/
+          tree ./
           
       - name: Delete temporary files
         run: |
