@@ -38,7 +38,6 @@ jobs:
       - name: Checkout theme repo
         run: |
           git clone --single-branch --branch master git@github.com:Candinya/Kratos-Rebirth.git
-          git checkout -b mk
           
       - name: Checkout flie repo
         uses: actions/checkout@v2
@@ -71,4 +70,4 @@ jobs:
           git remote set-url origin git@github.com:TsumugiWenders/Kratos-Rebirth-MK.git
           git add -A
           git commit -m "Update"
-          git push --set-upstream origin mk  --force
+          git push --set-upstream origin :mk  --force
