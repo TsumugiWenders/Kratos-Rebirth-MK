@@ -5,7 +5,7 @@ on:
   
 env:
   DEPLOY_REPO: TsumugiWenders/Kratos-Rebirth-MK
-  DEPLOY_BRANCH: master
+  DEPLOY_BRANCH: mk
   DEPLOY_FILE: file
   THEME_REPO: Candinya/Kratos-Rebirth
   THEME_BRANCH: master
