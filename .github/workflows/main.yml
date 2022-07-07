@@ -49,6 +49,7 @@ jobs:
           
       - name: Move modified files
         run: |
+          tree ./
           cp ./repo-tmp/_config.yml ./KR/
           cp ./repo-tmp/images ./KR/source/
           
