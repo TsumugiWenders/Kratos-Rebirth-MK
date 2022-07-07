@@ -40,11 +40,8 @@ jobs:
           git clone --single-branch --branch master git@github.com:Candinya/Kratos-Rebirth.git
           
       - name: Checkout flie repo
-        uses: actions/checkout@v2
-        with:
-          repository: ${{ env.DEPLOY_REPO }}
-          ref: ${{ env.DEPLOY_FILE }}
-          path: ./repo-tmp
+        run: |
+          git clone --single-branch --branch file git@github.com:TsumugiWenders/Kratos-Rebirth-MK.git
           
       - name: Delete source files
         run: |
