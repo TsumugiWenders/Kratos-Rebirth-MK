@@ -1,0 +1,72 @@
+name: BuildManually
+
+on:
+  workflow_dispatch:
+  
+env:
+  DEPLOY_REPO: TsumugiWenders/Kratos-Rebirth-MK
+  DEPLOY_BRANCH: master
+  DEPLOY_FILE: file
+  THEME_REPO: Candinya/Kratos-Rebirth
+  THEME_BRANCH: master
+
+jobs:
+  build:
+    name: Build on node ${{ matrix.node_version }} and ${{ matrix.os }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node_version: [14.x]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        
+      - name: Configuration environment
+        env:
+          HEXO_DEPLOY_PRI: ${{ secrets.PRI }}
+        run: |
+          sudo timedatectl set-timezone "Asia/Shanghai"
+          mkdir -p ~/.ssh/
+          echo "$HEXO_DEPLOY_PRI" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          git config --global user.name Github Actions
+          git config --global user.email Tsumugi_Wenders@outlook.com
+          
+      - name: Checkout theme repo
+        run: git clone --single-branch --branch master git@github.com:Candinya/Kratos-Rebirth.git
+          
+      - name: Checkout flie repo
+        uses: actions/checkout@v2
+        with:
+          repository: ${{ env.DEPLOY_REPO }}
+          ref: ${{ env.DEPLOY_FILE }}
+          path: ./repo-tmp
+          
+      - name: Delete source files
+        run: |
+          rm -rf ./Kratos-Rebirth/source/images/
+          rm ./Kratos-Rebirth/_config.yml
+          
+      - name: Move modified files
+        run: |
+          mv ./repo-tmp/_config.yml ./Kratos-Rebirth/
+          mv ./repo-tmp/images ./Kratos-Rebirth/source/
+          
+      - name: Delete temporary files
+        run: |
+          rm -rf ./repo-tmp
+          
+      - name: lsdir
+        run: |
+          tree ./
+          
+      - name: Push
+        run: |
+          cd ./Kratos-Rebirth
+          git remote set-url origin git@github.com:TsumugiWenders/Kratos-Rebirth-MK.git
+          git add -A
+          git commit -m "Update"
+          git push --set-upstream origin master
