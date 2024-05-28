@@ -1,7 +1,7 @@
 # Global 全局配置
-site_analytics: ''
-hoster: <a href="https://github.io" target="_blank">Github Pages</a>
-site_logo: ''
+site_analytics: 
+hoster: <a href="https://www.cloudflare.com" target="_blank">CloudFlare</a>
+site_logo: /images/site_logo.webp
 snow: false
 click_animate_js: 'candy'
 enable_dark: true
@@ -47,50 +47,64 @@ vendors:
 # 自定义样式
 customStyles:
   images: # 图片相关设置
-    # banner: /images/banner.webp # 站点横幅
-    # background: /images/bg.webp # 站点背景
+    banner: /images/banner.webp # 站点横幅
+    background: /images/bg.webp # 站点背景
 
 # Index 首页配置
 index:
   post_type: false
-  read_count: true
-  comment_count: true
+  read_count: false
+  comment_count: false
 
 # Top Menu 顶部导航栏配置 （具体格式请参照文档）
 menu:
-  # index: /
-  # archives: /archives/
-  # friends: /friends/
-  # sites:
-  #   submenu: true
-  #   author: https://candinya.com
-  #   project: https://github.com/Candinya/Kratos-Rebirth
+  index: /
+  archives: /archives/
+  sites:
+    submenu: true
+    qust: /qust/
+    seach: /search/
+  friends: /friends/
+  TestLab:
+    submenu: true
+    AriaNg: http://ariang.nekopara.net
+    FC: https://zong-my.sharepoint.com/:f:/g/personal/neko_nekopara_net/Eh3nr7Co-y5JrZFdW3AiZwcBCPA5okTFcigLCRl7NZFP1A
+    DD: http://dev.kanotype.net:8003/deepdanbooru/
+  EveryDayPic: /everydaypic/
+  about: /about/
 
 label:
-  # index: <i class="fa fa-home"></i>首页
-  # archives: <i class="fa fa-file"></i>档案馆
-  # friends: <i class="fa fa-paw"></i>好伙伴
-  # sites:
-  #   submenu: <i class="fa fa-link"></i>链接
-  #   author: 作者博客
-  #   project: 项目链接
+  index: <i class="fa fa-home"></i>首页
+  archives: <i class="fa fa-archive"></i>档案馆
+  sites: 
+    submenu: <i class="fa fa-link"></i>链接
+    seach: 查找
+    qust: Address of QUST
+  friends: <i class="fa fa-mars"></i>好朋友们
+  TestLab:
+    submenu: <i class="fa fa-flask"></i>实验室
+    AriaNg: <i class="fa fa-angle-double-down"></i>AriaNg
+    FC: <i class="fa fa-file-o"></i>文件收集
+    DD: 二次元图片识别
+  EveryDayPic: <i class="fa fa-picture-o"></i>每日图片
+  about: <i class="fa fa-paper-plane"></i>关于
 
 # Footer 页脚配置
 group_link: 
-contact: # 出于兼容性考虑，继续保留
+contact:
   weibo: 
-  mail: 
-  telegram:
-  twitter: 
+  mail: neko@nekopara.net
+  telegram: TsumugiWenders
+  twitter: Tsumugi_HG
   facebook: 
   linkedin: 
   fediverse:
-    instance:
-    username:
-  github:
+    instance: 
+    username: 
+  github: TsumugiWenders
   rss:
-footerLinks: [] # 可以自定义
 timenotice: 本站已运行
+footerLinks: [] # 可以自定义
 icp: 
 psr:
   
@@ -100,11 +114,8 @@ posts:
   donate: false
   share: true
   comments: 
-    provider: ''
+    provider: 'waline'
     enableBGImage: false
-  wordCount: 
-    enable: true
-    threshold: 1500
 
 # Disqus [Disqus](https://disqus.com) 评论相关
 disqus:
@@ -123,51 +134,21 @@ disqusjs:
 valine:
   app_id: 
   app_key: 
-  visitor: true
-  enableQQ: false
+  visitor: 
 
 # Twikoo [Twikoo](https://twikoo.js.org) 评论相关
 twikoo:
   env_id: 
 
 # Waline [Waline](https://waline.js.org) 评论相关
-## 不仅限于以下内容，您可以参照 Waline的 [前端配置文档](https://waline.js.org/reference/client.html) 设置您需要的配置项
+## 不仅限于以下内容，您可以参照 Waline的 [前端配置文档](https://waline.js.org/client/basic.html) 设置您需要的配置项
 ## el 和 path 会在页面自动生成，不必加入
 waline:
-  serverURL: #后端服务器地址，必填
-  comment: true
-  pageview: true
-
-# Gitalk [Gitalk](https://gitalk.github.io/) 评论相关
-## 不仅限于以下内容，您可以参照 [Gitalk 文档](https://github.com/gitalk/gitalk/blob/master/readme-cn.md#%E8%AE%BE%E7%BD%AE) 设置您需要的配置项
-## id 会在页面自动生成，不必加入
-gitalk:
-  clientID: 'GitHub Application Client ID'
-  clientSecret: 'GitHub Application Client Secret'
-  repo: 'Kratos-Rebirth-Demo'
-  owner: 'Candinya'
-  admin: 
-    - 'Candinya'
-  distractionFreeMode: false
-
-#默认不计算hash 但是如果id过长(默认为url_for(page.path))会导致创建评论区失败 见[#139](https://github.com/Candinya/Kratos-Rebirth/issues/139)
-gitalk_id_hasher: false
-# gitalk_id_hasher: md5
-
-# Gitment [Gitment](https://github.com/imsun/gitment/) 评论相关
-## 不仅限于以下内容，您可以参照 [Gitment 文档](https://github.com/imsun/gitment#methods) 设置您需要的配置项
-## id 会在页面自动生成，不必加入
-gitment:
-  owner: 'Candinya'
-  repo: 'Kratos-Rebirth-Demo'
-  oauth:
-    client_id: 'Your client ID'
-    client_secret: 'Your client secret'
-
-# LiveRe [LiveRe](https://livere.com/) 评论相关
-livere:
-  id: city
-  uid:
+  serverURL: https://waline.nekopara.net
+  avatarCDN: https://ga.candinya.com/avatar/
+  placeholder: 说点什么喵～o(=•ェ•=)m\\n无需登录也完全没问题哦～
+  visitor: true
+  langMode: {"admin":"🍬"}
 
 # APlayer 左下角音乐播放器
 aplayer:
@@ -176,7 +157,7 @@ aplayer:
   meting:
     server: netease
     type: playlist
-    id: 3204190542
+    id: 6724652045
   order: random
 
 # Widgets 侧边栏小挂件
@@ -188,7 +169,7 @@ widgets:
 - category
 - tagcloud
 - posts
-avatarUri: /images/avatar.webp
+avatarUri: /images/logo.webp
 mobile_toc: 
   hide: false
   hide_id: false
@@ -200,7 +181,7 @@ fancybox: true
 search:
   enable: true
   path: search.json
-  field: post # page | post | all. Default post
+  field: all # page | post | all. Default post
   content: true # Include post | page content
 
 # JavaScript 相关配置
@@ -223,34 +204,27 @@ jsconfig:
     expire_day: 30
     topNavScrollToggle: true
 
+
 # Site verify 站点验证相关配置内容
 site_verify:
-  google: 
+  google: yIZU7ISNE4Y9KCNkxep-pBUYT5MW-_FP-sERISh3qpU
   baidu: 
-  bing: 
+  bing: C258629E6197B3E5F1664527F17242D4 
 
 # Friends 友链相关内容
-friends:
-  href: "friends"
-  page:
-    title: "好伙伴们"
-    comments: false
-    description: "好伙伴们在哪里~"
-    updated: "2021-01-18"
-  list:
-  # - name: "猫猫①号"
-  #   bio: "喵~"
-  #   avatar: "../images/avatar.webp"
-  #   link: "https://candinya.com"
-  # - name: "猫猫②号"
-  #   bio: "喵喵~"
-  #   avatar: "../images/avatar.webp"
-  #   link: "https://candinya.com"
-  # - name: "猫猫⑨号"
-  #   bio: "咪啪~"
-  #   avatar: "../images/avatar.webp"
-  #   link: "https://candinya.com"
-  verify: true # 验证每个友链的可访问性，炸了会有提示
+#friends:
+#  href: "friends"
+#  page:
+#    title: "好伙伴们"
+#    comments: false
+#    description: "好伙伴们在哪里~"
+#    updated: "2021-01-18"
+#  list:
+#  - name: "猫猫①号"
+#    bio: "喵~"
+#    avatar: "../images/avatar.webp"
+#    link: "#"
+#  verify: true # 验证每个友链的可访问性，炸了会有提示
 
 # Misc 杂项
 misc:
